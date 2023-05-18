@@ -4,13 +4,11 @@ import com.devsuperior.dslearnbds.entities.enums.ResourceType;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_resource")
-public class Resource implements Serializable
+@Table(name = "tb_section")
+public class Section implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -21,27 +19,28 @@ public class Resource implements Serializable
     private String description;
     private Integer position;
     private String imgUri;
-    private ResourceType type;
 
     @ManyToOne
-    @JoinColumn( name = "offer_id" )
-    private Offer offer;
+    @JoinColumn( name = "resource_id" )
+    private Resource resource;
 
-    @OneToMany( mappedBy = "resource" )
-    private List<Section> sections = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn( name = "prerequisite_idA" )
+    private Section prerequiste;
 
-    public Resource()
+    public Section()
     {
     }
 
-    public Resource( Long id, String title, String description, Integer position, String imgUri, ResourceType type )
+    public Section( Long id, String title, String description, Integer position, String imgUri, Resource resource, Section prerequiste )
     {
         this.id = id;
         this.title = title;
         this.description = description;
         this.position = position;
         this.imgUri = imgUri;
-        this.type = type;
+        this.resource = resource;
+        this.prerequiste = prerequiste;
     }
 
     public Long getId()
@@ -94,38 +93,33 @@ public class Resource implements Serializable
         this.imgUri = imgUri;
     }
 
-    public ResourceType getType()
+    public Resource getResource()
     {
-        return type;
+        return resource;
     }
 
-    public void setType( ResourceType type )
+    public void setResource( Resource resource )
     {
-        this.type = type;
+        this.resource = resource;
     }
 
-    public Offer getOffer()
+    public Section getPrerequiste()
     {
-        return offer;
+        return prerequiste;
     }
 
-    public void setOffer( Offer offer )
+    public void setPrerequiste( Section prerequiste )
     {
-        this.offer = offer;
-    }
-
-    public List<Section> getSections()
-    {
-        return sections;
+        this.prerequiste = prerequiste;
     }
 
     @Override
     public boolean equals( Object o )
     {
         if ( this == o ) return true;
-        if ( !( o instanceof Resource ) ) return false;
-        Resource resource = ( Resource ) o;
-        return Objects.equals( getId(), resource.getId() );
+        if ( !( o instanceof Section ) ) return false;
+        Section section = ( Section ) o;
+        return Objects.equals( getId(), section.getId() );
     }
 
     @Override
