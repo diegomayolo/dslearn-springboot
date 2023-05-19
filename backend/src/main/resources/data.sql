@@ -25,3 +25,6 @@ INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id) V
 INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ( 'Capítulo 01', 'Neste capítulo vamos começar a aprender Spring Boot', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA4JuXTPJLdp9Ek6TDpjZLV_2lOEbF2D-MIw&usqp=CAU', 1, NULL );
 INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ( 'Capítulo 02', 'Neste capítulo vamos continuar aprendendo Spring Boot', 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA4JuXTPJLdp9Ek6TDpjZLV_2lOEbF2D-MIw&usqp=CAU', 1, 1 );
 INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ( 'Capítulo 03', 'Neste capítulo vamos finalizar o aprendizado sobre Spring Boot', 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA4JuXTPJLdp9Ek6TDpjZLV_2lOEbF2D-MIw&usqp=CAU', 1, 2 );
+
+INSERT INTO tb_enrollment( user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES ( 1, 1, '2023-01-20T013:00:00Z', NULL, true, false );
+INSERT INTO tb_enrollment( user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES ( 2, 1, '2023-01-20T013:00:00Z', NULL, true, false );
