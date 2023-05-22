@@ -28,3 +28,18 @@ INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prere
 
 INSERT INTO tb_enrollment( user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES ( 1, 1, '2023-01-20T013:00:00Z', NULL, true, false );
 INSERT INTO tb_enrollment( user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES ( 2, 1, '2023-01-20T013:00:00Z', NULL, true, false );
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Aula 01 do capítulo 01', 1, 1);
+INSERT INTO tb_content(id, text_Content, video_Uri) VALUES (1, 'Material de apoio: <acesse-aqui>', 'https://www.youtube.com/watch?v=T7_j6EE3-1c');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Aula 02 do capítulo 01', 2, 1);
+INSERT INTO tb_content(id, text_Content, video_Uri) VALUES (2, '', 'https://www.youtube.com/watch?v=T7_j6EE3-1c');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Aula 03 do capítulo 01', 3, 1);
+INSERT INTO tb_content(id, text_Content, video_Uri) VALUES (3, '', 'https://www.youtube.com/watch?v=T7_j6EE3-1c');
+
+INSERT INTO tb_lesson(title, position, section_id) VALUES ('Tarefa do capítulo 1', 4, 1);
+INSERT INTO tb_task(id, description, question_Count, approval_Count, weight, due_Date) VALUES (4, 'Tarefa do capítulo 1', 5, 4, 1.0, '2023-01-25T013:00:00Z' );
+
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done(lesson_id, user_id, offer_id) VALUES (2, 1, 1);
