@@ -92,6 +92,11 @@ public class User implements UserDetails, Serializable
         return notifications;
     }
 
+    public boolean hasRole( String roleName )
+    {
+        return roles.stream().anyMatch( role -> role.getAuthority().equals( roleName ) );
+    }
+
     @Override
     public boolean equals( Object o )
     {
