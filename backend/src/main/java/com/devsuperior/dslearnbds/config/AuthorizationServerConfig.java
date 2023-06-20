@@ -53,24 +53,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private UserDetailsService userDetailsService;
 
-    /**
-     * configure
-     *
-     * @param security AuthorizationServerSecurityConfigurer
-     * @throws Exception
-     */
     @Override
     public void configure( AuthorizationServerSecurityConfigurer security ) throws Exception
     {
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
-    /**
-     * configure
-     *
-     * @param clients ClientDetailsServiceConfigurer
-     * @throws Exception
-     */
     @Override
     public void configure( ClientDetailsServiceConfigurer clients ) throws Exception
     {
@@ -82,12 +70,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .refreshTokenValiditySeconds( jwtDuration );
     }
 
-    /**
-     * configure
-     *
-     * @param endpoints AuthorizationServerEndpointsConfigurer
-     * @throws Exception
-     */
     @Override
     public void configure( AuthorizationServerEndpointsConfigurer endpoints ) throws Exception
     {

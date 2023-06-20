@@ -7,33 +7,27 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-/**
- *
- * @author dm
- */
 @Configuration
-public class AppConfig
-{
+public class AppConfig {
+
     @Value("${jwt.secret}")
     private String jwtSecret;
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder()
-    {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public JwtAccessTokenConverter accessTokenConverter()
-    {
+    public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-        tokenConverter.setSigningKey( jwtSecret );
+        tokenConverter.setSigningKey(jwtSecret);
         return tokenConverter;
     }
 
     @Bean
-    public JwtTokenStore tokenStore()
-    {
+    public JwtTokenStore tokenStore() {
         return new JwtTokenStore(accessTokenConverter());
     }
+
 }
